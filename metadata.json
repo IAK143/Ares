@@ -1,0 +1,6 @@
+{
+  "name": "Aeris Air Quality Monitor",
+  "description": "Minimal real-time air quality index dashboard featuring topographic sensor heatmaps, live pollutant alerts, and night-time dark mode.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

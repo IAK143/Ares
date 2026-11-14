@@ -1,0 +1,104 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f8fafc;
+    color: #0f172a;
+    transition: background-color 280ms cubic-bezier(0.16, 1, 0.3, 1),
+      color 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html.dark body {
+    background-color: #090b10;
+    color: #f1f5f9;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-sans-ui {
+  font-family: var(--font-sans);
+}
+
+.font-mono-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.35);
+  border-radius: 3px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.2);
+}
+
+.leaflet-container {
+  font-family: var(--font-sans);
+  background: #e2e8f0;
+}
+
+html.dark .leaflet-container {
+  background: #0b101b;
+}
+
+.leaflet-control-attribution {
+  font-size: 10px !important;
+  background: rgba(255, 255, 255, 0.78) !important;
+  color: #475569 !important;
+  backdrop-filter: blur(4px);
+}
+
+html.dark .leaflet-control-attribution {
+  background: rgba(15, 23, 42, 0.78) !important;
+  color: #94a3b8 !important;
+}
+
+html.dark .leaflet-control-attribution a {
+  color: #7dd3fc !important;
+}
+
+.aeris-tiles-osm {
+  filter: saturate(0.55) brightness(1.03) contrast(0.95);
+}
+
+html.dark .aeris-tiles-osm {
+  filter: invert(100%) hue-rotate(180deg) brightness(0.88) contrast(0.94) saturate(0.5);
+}
+
+html.dark .aeris-tiles-topo {
+  filter: brightness(0.76) contrast(1.06) saturate(0.75);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
